@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+   @user = User.find_by(username: params[:id])
+   @shouts = @user.shouts
+  end
+
   def create
     @user = sign_up(user_params)
 

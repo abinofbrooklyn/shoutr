@@ -1,4 +1,8 @@
 <%= div_for(shout) do %>
-  <%= shout.content %>
+  <fieldset>
+    <%= link_to shout.user.username, shout.user %>
+    <legend>Posted <%= time_ago_in_words(shout.created_at) %> ago</legend>
+    <p><%= shout.content %><p>
+  </fieldset>
 <% end %>
 
