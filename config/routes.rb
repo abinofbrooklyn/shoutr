@@ -1,6 +1,14 @@
+require "monban/constraints/signed_in"
 Rails.application.routes.draw do
+  constraints Monban::Constraints::SignedIn.new do
+    root "dashboards#show", as: :home
+  end
+
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
+  resource :dashboard, only: [:show] 
+  root "homes#show"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
