@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   end
 
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] 
+  resources :shouts, only: [:create]
   resource :dashboard, only: [:show] 
   root "homes#show"
 
