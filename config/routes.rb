@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   end
 
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :show]  
+  resources :users, only: [:new, :create, :show] do
+    member do
+      post "follow" => "following_relationships#create"
+      delete "follow" => "following_relationships#destroy"
+    end
+  end  
   resources :shouts, only: [:create]
   resource :dashboard, only: [:show] 
   root "homes#show"

@@ -7,4 +7,9 @@
 <% end %>
 
 <%= render @shouts %>
-
+<div>
+  Following: <%= render current_user.followed_users %>
+</div>
+<div>
+  Followers: <%= render current_user.followers %>
+</div>
